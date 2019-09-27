@@ -7,6 +7,9 @@
     object-fit: cover;
 }
 
+.input-group .input-group-addon {
+    min-width: 120px;
+}
 .container {
     width: 100%; 
 }
@@ -15,6 +18,12 @@
     -webkit-box-shadow: 9px 10px 25px -15px rgba(0,0,0,0.75);
     -moz-box-shadow: 9px 10px 25px -15px rgba(0,0,0,0.75);
     box-shadow: 9px 10px 25px -15px rgba(0,0,0,0.75);
+}
+
+@media (min-width: 768px) {
+    .modal-dialog {
+        width: 750px !important
+    }
 }
 
 @media (min-width: 992px) and (max-width: 1200px){

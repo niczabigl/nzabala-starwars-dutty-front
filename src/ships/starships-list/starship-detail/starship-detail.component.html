@@ -1,1 +1,76 @@
-<div>{{$ctrl.starship}}</div>
+<div id="starshipdetail" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">{{$ctrl.starship.model}}</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">Name</span>
+                            <input id="name" type="text" class="form-control" name="name" value="{{$ctrl.starship.name}}">
+                            <span class="input-group-addon">Starship class</span>
+                            <input id="starship_class" type="text" class="form-control" name="password" value="{{$ctrl.starship.starship_class}}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">Manufacturer</span>
+                            <input id="manufacturer" type="text" class="form-control" name="manufacturer" value="{{$ctrl.starship.manufacturer}}">
+                            <span class="input-group-addon">Passengers</span>
+                            <input id="passengers" type="text" class="form-control" name="passengers" value="{{$ctrl.starship.passengers}}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">                         
+                            <span class="input-group-addon">Created at:</span>
+                            <input id="created" type="text" class="form-control" name="created" value="{{$ctrl.starship.created}}">
+                            <span class="input-group-addon">Edited:</span>
+                            <input id="edited" type="text" class="form-control" name="edited" value="{{$ctrl.starship.edited}}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="dropdown">
+                                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Films
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <!-- TODO: when you select a film can make an another modal view to show film properties as character table or info about that film -->
+                                    <li ng-repeat="f in $ctrl.starship.films">{{f}}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- $$hashKey: "object:4"
+MGLT: "40"
+cargo_capacity: "250000000"
+consumables: "6 years"
+cost_in_credits: "1143350000"
+created: "2014-12-15T12:31:42.547000Z"
+crew: "279144"
+edited: "2017-04-19T10:56:06.685592Z"
+films: (2) ["https://swapi.co/api/films/2/", "https://swapi.co/api/films/3/"]
+hyperdrive_rating: "2.0"
+length: "19000"
+manufacturer: "Kuat Drive Yards, Fondor Shipyards"
+max_atmosphering_speed: "n/a"
+model: "Executor-class star dreadnought"
+name: "Executor"
+passengers: "38000"
+pilots: []
+starship_class: "Star dreadnought"
+url: "https://swapi.co/api/starships/15/" -->

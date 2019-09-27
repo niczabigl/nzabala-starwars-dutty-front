@@ -11,13 +11,12 @@
     })
   function StarshipsListController ($scope) {
     var ctrl = this
-    ctrl.selectedStarShip = false
     ctrl.starship = {}
 
     ctrl.showShipDetails = function showShipDetails (ship) {
       console.log('showShipDetails', ship)
-      ctrl.selectedStarShip = true
       ctrl.starship = ship
+      $('#starshipdetail').modal('show')
     }
 
     ctrl.fetchNextPage = function () {
