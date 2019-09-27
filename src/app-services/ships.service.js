@@ -17,7 +17,8 @@
       return $http.get(url, {
         headers: {
           'Authorization': 'none'
-        }
+        },
+        timeout: 30000
       }).then(function (res) {
         return res.data
       })

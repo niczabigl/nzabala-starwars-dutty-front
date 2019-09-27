@@ -8,7 +8,6 @@
   ShipsController.$inject = ['ShipsService', '$scope']
   function ShipsController (ShipsService, $scope) {
     var _this = this
-
     _this.fetchNext = function () {
       var url = _this.lastResponse ? _this.lastResponse.next : null
 
@@ -28,5 +27,6 @@
     _this.starships = []
 
     _this.fetchNext()
+    console.log('ShipsController', _this)
   }
 })()
