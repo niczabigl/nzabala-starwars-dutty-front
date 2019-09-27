@@ -6,7 +6,8 @@
       templateUrl: './ships/starships-list/starships-list.component.html',
       bindings: {
         starships: '<',
-        onFetchNextPage: '&'
+        onFetchNextPage: '&',
+        lastpage: '='
       }
     })
   function StarshipsListController ($scope) {
@@ -14,13 +15,14 @@
     ctrl.starship = {}
 
     ctrl.showShipDetails = function showShipDetails (ship) {
-      console.log('showShipDetails', ship)
       ctrl.starship = ship
       $('#starshipdetail').modal('show')
     }
 
     ctrl.fetchNextPage = function () {
-      ctrl.onFetchNextPage()
+      if (!ctrl.lastpage) {
+        ctrl.onFetchNextPage()
+      }
     }
   }
 })()

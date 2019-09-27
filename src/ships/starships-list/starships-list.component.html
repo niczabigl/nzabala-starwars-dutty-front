@@ -4,4 +4,4 @@
     </div>
     <starship-detail starship="$ctrl.starship"></starship-detail>
 </div>
-<button ng-click="$ctrl.fetchNextPage()" class="btn btn-primary">Más datos</button>
+<button ng-click="$ctrl.fetchNextPage()" class="btn btn-primary" ng-disabled="$ctrl.lastpage">Más datos</button>
