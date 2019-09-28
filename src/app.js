@@ -6,8 +6,8 @@
     .config(config)
     .run(run)
 
-  config.$inject = ['$routeProvider', '$locationProvider']
-  function config ($routeProvider, $locationProvider) {
+  config.$inject = ['$routeProvider', '$locationProvider', '$httpProvider']
+  function config ($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider
       .when('/ships', {
         controller: 'ShipsController',
@@ -17,23 +17,46 @@
       })
       .when('/', {
         controller: 'ShipsController',
-        templateUrl: 'home/home.view.html',
+        templateUrl: 'ships/ships.view.html',
         controllerAs: '$ctrl'
       })
-
       .when('/login', {
         controller: 'LoginController',
         templateUrl: 'login/login.view.html',
         controllerAs: 'vm'
       })
-
       .when('/register', {
         controller: 'RegisterController',
         templateUrl: 'register/register.view.html',
         controllerAs: 'vm'
       })
-
       .otherwise({ redirectTo: '/login' })
+
+    // La inclusión de un interceptor es para controlar y proteget la api de peticiones concurrentes, por eso se genera un tiempo de 300 para su uso entre peticiones
+    $httpProvider.interceptors.push(['$q', function ($q) {
+      return {
+        request: function (httpConfig) {
+          let httpReqUrl = httpConfig.url.includes('https://swapi.co/api/')
+          if (httpReqUrl) {
+            let lastServerCall = window.localStorage.getItem('lastServerCall')
+            // Si aún no ha hecho una llamada, permitir la petición
+            if (!lastServerCall) {
+              window.localStorage.setItem('lastServerCall', Date.parse(new Date()) / 1000)
+              return httpConfig
+            } else { // conseguir del localStorage la instancia de la última petición al servidor "configurado por url" y calcular el tiempo de transcurso
+              const timeToNextCall = 300
+              let now = Date.parse(new Date()) / 1000
+              if ((now - lastServerCall) > timeToNextCall) return httpConfig
+              return $q.reject(`Call not allowed need to wait ${timeToNextCall - (now - lastServerCall)} seconds`)
+            }
+          }
+          return httpConfig
+        },
+        responseError: function (response) {
+          return $q.reject(response)
+        }
+      }
+    }])
   }
 
   run.$inject = ['$rootScope', '$location', '$cookies', '$http']
