@@ -10,11 +10,10 @@
       }
     })
   function StarshipDetailController () {
-    console.log('starship-detail', this)
     var ctrl = this
 
     ctrl.$onInit = function () {
-      console.log('onInit', this)
+
     }
   }
 })()

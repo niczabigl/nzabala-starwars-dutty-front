@@ -10,14 +10,14 @@
       }
     })
 
-  function StarshipController () {
+  function StarshipController ($scope) {
     var ctrl = this
     ctrl.shipId = ''
-
+    ctrl.starshipimg = false
     ctrl.$onInit = function () {
       getStarshipId()
     }
-
+    
     function getStarshipId () {
       var url = ctrl.starship.url
       ctrl.shipId = url.split('/').filter(function (item) {

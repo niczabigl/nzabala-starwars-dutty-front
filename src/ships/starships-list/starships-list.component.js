@@ -14,7 +14,7 @@
     var ctrl = this
     ctrl.starship = {}
 
-    ctrl.showShipDetails = function showShipDetails (ship) {
+    ctrl.showShipDetails = function (ship) {
       ctrl.starship = ship
       $('#starshipdetail').modal('show')
     }

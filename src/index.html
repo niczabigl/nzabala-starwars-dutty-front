@@ -10,7 +10,7 @@
 
         <div class="container">
             <!-- As a link -->
-            <div class="col-sm-12">
+            <div class="col-md-12">
                 <div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash" ng-bind="flash.message"></div>
                 <div ng-view></div>
             </div>
@@ -25,13 +25,22 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
     <script src="app.js"></script>
+
+    <!-- SERVICES -->
     <script src="app-services/authentication.service.js"></script>
     <script src="app-services/flash.service.js"></script>
     <script src="app-services/ships.service.js"></script>
     <script src="app-services/user.service.local-storage.js"></script>
+
+    <!-- VIEWS CONTROLLERS -->
     <script src="login/login.controller.js"></script>
     <script src="register/register.controller.js"></script>
     <script src="ships/ships.controller.js"></script>
+
+    <!-- DIRECTIVES -->
+    <script src="ships/starships-list/starship/starphip.directive.js"></script>
+
+    <!-- COMPONENTS -->
     <script src="ships/starships-list/starships-list.component.js"></script>
     <script src="ships/starships-list/starship/starship.component.js"></script>
     <script src="ships/starships-list/starship-detail/starship-detail.component.js"></script>
