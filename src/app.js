@@ -5,29 +5,30 @@
     .module('app', ['ngRoute', 'ngCookies'])
     .config(config)
     .run(run)
+    .controller('MainController', MainController)
 
   config.$inject = ['$routeProvider', '$locationProvider', '$httpProvider']
   function config ($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider
       .when('/ships', {
         controller: 'ShipsController',
-        templateUrl: 'ships/ships.view.html',
+        templateUrl: 'views/ships/ships.view.html',
         controllerAs: '$ctrl'
 
       })
       .when('/', {
         controller: 'ShipsController',
-        templateUrl: 'ships/ships.view.html',
+        templateUrl: 'views/ships/ships.view.html',
         controllerAs: '$ctrl'
       })
       .when('/login', {
         controller: 'LoginController',
-        templateUrl: 'login/login.view.html',
+        templateUrl: 'views/login/login.view.html',
         controllerAs: 'vm'
       })
       .when('/register', {
         controller: 'RegisterController',
-        templateUrl: 'register/register.view.html',
+        templateUrl: 'views/register/register.view.html',
         controllerAs: 'vm'
       })
       .otherwise({ redirectTo: '/login' })
@@ -70,10 +71,19 @@
     $rootScope.$on('$locationChangeStart', function (event, next, current) {
       // redirect to login page if not logged in and trying to access a restricted page
       var restrictedPage = $.inArray($location.path(), ['/login', '/register']) === -1
+      console.log('restrictedPage', restrictedPage)
       var loggedIn = $rootScope.globals.currentUser
+      console.log('loggedIn', loggedIn)
       if (restrictedPage && !loggedIn) {
         $location.path('/login')
       }
     })
+  }
+
+  MainController.$inject = ['$rootScope']
+  function MainController ($rootScope) {
+    console.log('MainController')
+    var ctrl = this
+    ctrl.loggedIn = $rootScope.globals.currentUser
   }
 })()
