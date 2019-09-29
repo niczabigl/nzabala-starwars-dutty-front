@@ -3,7 +3,7 @@
   angular.module('app')
     .component('starshipsList', {
       controller: StarshipsListController,
-      templateUrl: './ships/starships-list/starships-list.component.html',
+      templateUrl: './components/starships-list/starships-list.component.html',
       bindings: {
         starships: '<',
         onFetchNextPage: '&',

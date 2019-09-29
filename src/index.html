@@ -8,11 +8,14 @@
 </head>
 <body>
 
-        <div class="container">
+        <div ng-controller="MainController" class="container">
             <!-- As a link -->
+            <menu></menu>
             <div class="col-md-12">
                 <div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash" ng-bind="flash.message"></div>
-                <div ng-view></div>
+                <div ng-view>
+                    
+                </div>
             </div>
         </div>
     
@@ -33,16 +36,17 @@
     <script src="app-services/user.service.local-storage.js"></script>
 
     <!-- VIEWS CONTROLLERS -->
-    <script src="login/login.controller.js"></script>
-    <script src="register/register.controller.js"></script>
-    <script src="ships/ships.controller.js"></script>
+    <script src="views/login/login.controller.js"></script>
+    <script src="views/register/register.controller.js"></script>
+    <script src="views/ships/ships.controller.js"></script>
 
     <!-- DIRECTIVES -->
-    <script src="ships/starships-list/starship/starphip.directive.js"></script>
+    <script src="components/ships/starships-list/starship/starphip.directive.js"></script>
 
     <!-- COMPONENTS -->
-    <script src="ships/starships-list/starships-list.component.js"></script>
-    <script src="ships/starships-list/starship/starship.component.js"></script>
-    <script src="ships/starships-list/starship-detail/starship-detail.component.js"></script>
+    <script src="components/menu/menu.component.js"></script>
+    <script src="components/starships-list/starships-list.component.js"></script>
+    <script src="components/starships-list/starship/starship.component.js"></script>
+    <script src="components/starships-list/starship-detail/starship-detail.component.js"></script>
 </body>
 </html>

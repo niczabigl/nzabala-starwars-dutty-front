@@ -4,7 +4,7 @@
     .module('app')
     .component('starshipDetail', {
       controller: StarshipDetailController,
-      templateUrl: './ships/starships-list/starship-detail/starship-detail.component.html',
+      templateUrl: './components/starships-list/starship-detail/starship-detail.component.html',
       bindings: {
         starship: '<'
       }
