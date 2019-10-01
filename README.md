@@ -36,6 +36,8 @@ Elige las tareas que creas que mejor se adaptan a tus conocimientos. Justifica p
  *La protección de una api es siempre importante, ya sea con seguridad, o con el control de peticiones concurrentes para no tumbar nunca un servidor. No obstante sostengo que esta protección en un localstoorage, no es nada bueno, ya que nunca se ha de colocar en el client-side datos susceptibles de ser manipulados, y controlados para tal efectos, y menos en temas de segurirdad, ya que conociendo un poco la aplicación es facil de lanzar la aplicacion con un middleware que justamente deshaga el contador de los 5 minutos.*
 - Implementar un menú para los usuarios registrados:
    - Este menú debe permitir cambiar de página. Crea una página de prueba para comprobar que funcione. **5 Puntos**
+   @Nzabala
+   *Hemos procedido a implementar el menú, con 2 entradas, 1 de ellas, con múltiple funcion de llamada a la api en función de la pagina que se solicita (ships), y luego una nueva entrada para ver monstruos espaciales.*
 - Actualización a Angular 7: Aunque esto se realizaría en una fase 2, se ha pedido actualizar a la versión 7 de Angular.  La tarea consistirá en, manteniendo la funcionalidad, adaptar el código a Angular 7. Para esta tarea hay total libertad de empezar de 0 pero se deben mantener las funcionalidades mínimas descritas en el apartado “Requisitos mínimos”. **15 puntos**
 - Tests unitarios: Aplica test unitarios al componente starship.service y starship-list.component **5 Puntos**
 
