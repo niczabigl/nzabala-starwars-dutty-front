@@ -5,17 +5,17 @@
     .component('menu', {
       controller: MenuController,
       templateUrl: './components/menu/menu.component.html',
-      bindings: {}
+      bindings: {
+        loggedIn: '<'
+      }
     })
 
   function MenuController ($scope) {
     var ctrl = this
-    ctrl.$onInit = function () {
-      $('#sidebarCollapse').on('click', function () {
-        $('#sidebar').toggleClass('active')
-        $('#sidebarCollapse').toggleClass('sidebarCollapseout')
-        $('#sidebarCollapse').toggleClass('sidebarCollapsein')
-      })
+    ctrl.showMenu = function () {
+      $('#sidebar').toggleClass('active')
+      $('#sidebarCollapse').toggleClass('sidebarCollapseout')
+      $('#sidebarCollapse').toggleClass('sidebarCollapsein')
     }
   }
 })()

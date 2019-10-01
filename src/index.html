@@ -1,47 +1,54 @@
 ﻿<!DOCTYPE html>
 <html ng-app="app">
+
 <head>
     <meta charset="utf-8" />
     <title>AngularJS User Registration and Login Example</title>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
     <link href="app-content/app.css" rel="stylesheet" />
 </head>
+
 <body>
 
-        <div ng-controller="MainController" class="container">
-            <!-- As a link -->
-            <menu></menu>
-            <div class="col-md-12">
-                <div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash" ng-bind="flash.message"></div>
-                <div ng-view>
-                    
+    <div ng-controller="RootController as root" class="container-fluid">
+        <div class="row">
+            <menu logged-in="root.loggedIn" class="col-md-2"></menu>
+            <div>
+                <div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }"
+                    ng-if="flash" ng-bind="flash.message"></div>
+                <div class="col-md-10" ng-view>
                 </div>
             </div>
         </div>
-    
-    
+    </div>
+
+
 
     <script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="//code.angularjs.org/1.6.0/angular.min.js"></script>
     <script src="//code.angularjs.org/1.6.0/angular-route.min.js"></script>
     <script src="//code.angularjs.org/1.6.0/angular-cookies.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-
+    
     <script src="app.js"></script>
 
     <!-- SERVICES -->
+    <script src="app-services/cachefactory.service.js"></script>
     <script src="app-services/authentication.service.js"></script>
     <script src="app-services/flash.service.js"></script>
     <script src="app-services/ships.service.js"></script>
+    <script src="app-services/monsters.service.js"></script>
     <script src="app-services/user.service.local-storage.js"></script>
 
     <!-- VIEWS CONTROLLERS -->
+    <script src="root.controller.js"></script>
     <script src="views/login/login.controller.js"></script>
     <script src="views/register/register.controller.js"></script>
     <script src="views/ships/ships.controller.js"></script>
+    <script src="views/monsters/monsters.controller.js"></script>
 
     <!-- DIRECTIVES -->
-    <script src="components/ships/starships-list/starship/starphip.directive.js"></script>
+    <script src="components/starships-list/starship/starphip.directive.js"></script>
 
     <!-- COMPONENTS -->
     <script src="components/menu/menu.component.js"></script>
@@ -49,4 +56,5 @@
     <script src="components/starships-list/starship/starship.component.js"></script>
     <script src="components/starships-list/starship-detail/starship-detail.component.js"></script>
 </body>
+
 </html>
