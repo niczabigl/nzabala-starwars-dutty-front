@@ -1,8 +1,9 @@
-<h1>Ships</h1>
+<div class="col-md-8 col-md-offset-1">
+    <h1>Ships</h1>
 
+    <starships-list starships="$ctrl.starships" lastpage="$ctrl.lastpage" on-fetch-next-page="$ctrl.fetchNext()"></starships-list>
 
-<starships-list starships="$ctrl.starships" lastpage="$ctrl.lastpage" on-fetch-next-page="$ctrl.fetchNext()"></starships-list>
-
-<div class="alert alert-danger" role="alert" ng-if="$ctrl.error">
-    Hi ha hagut un error al fer la petició
+    <div class="alert alert-danger" role="alert" ng-if="$ctrl.error">
+        {{$ctrl.errorMsg || 'Hi ha hagut un error al fer la petició'}}
+    </div>
 </div>

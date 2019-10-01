@@ -13,15 +13,16 @@
   function StarshipsListController ($scope) {
     var ctrl = this
     ctrl.starship = {}
+    ctrl.$onInit = function () {
+      ctrl.showShipDetails = function (ship) {
+        ctrl.starship = ship
+        $('#starshipdetail').modal('show')
+      }
 
-    ctrl.showShipDetails = function (ship) {
-      ctrl.starship = ship
-      $('#starshipdetail').modal('show')
-    }
-
-    ctrl.fetchNextPage = function () {
-      if (!ctrl.lastpage) {
-        ctrl.onFetchNextPage()
+      ctrl.fetchNextPage = function () {
+        if (!ctrl.lastpage) {
+          ctrl.onFetchNextPage()
+        }
       }
     }
   }

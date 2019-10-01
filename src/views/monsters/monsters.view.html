@@ -1,0 +1,19 @@
+<div class="col-md-8 col-md-offset-1">
+    <h1>Star Monsters</h1>
+
+    <div class="row" ng-repeat="monster in $ctrl.monsters" lastpage="$ctrl.lastpage" on-fetch-next-page="$ctrl.fetchNext()">
+        <div class="panel panel-default monster">
+            <div class="panel-heading">
+                <h3 class="panel-title">{{monster.name}}</h3>
+            </div>
+            <div class="panel-body">
+                <div>Class: {{monster.classification}}</div>
+                <div>Lang: {{monster.language}}</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="alert alert-danger" role="alert" ng-if="$ctrl.error">
+        {{$ctrl.errorMsg || 'Hi ha hagut un error al fer la petició'}}
+    </div>
+</div>

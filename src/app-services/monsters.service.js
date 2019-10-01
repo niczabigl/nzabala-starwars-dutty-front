@@ -3,16 +3,16 @@
 
   angular
     .module('app')
-    .factory('ShipsService', ShipsService)
+    .factory('MonstersService', MonstersService)
 
-  ShipsService.$inject = ['$http']
-  function ShipsService ($http) {
-    var service = { GetStarships: GetStarships }
+  MonstersService.$inject = ['$http']
+  function MonstersService ($http) {
+    var service = { GetMonsters: GetMonsters }
     return service
 
-    function GetStarships (url, page) {
+    function GetMonsters (url, page) {
       if (!url) {
-        url = 'https://swapi.co/api/starships/'
+        url = 'https://swapi.co/api/species/'
       }
       if (page) {
         url = url + '?page=' + page

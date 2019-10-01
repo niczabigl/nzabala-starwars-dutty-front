@@ -1,27 +1,41 @@
-<div class="wrapper">
+<div ng-if="$ctrl.loggedIn">
   <!-- Sidebar -->
-  <nav id="sidebar" class="active">
-    <div class="sidebar-header">
-      <h3>Ships Manager</h3>
-    </div>
-
-    <ul class="list-unstyled components">
-      <p>Star Ships Menú</p>
-      <li class="active">
-        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Inicio</a>
-        <ul class="collapse list-unstyled" id="homeSubmenu">
-          <li>
-            <a href="#">Ships</a>
-          </li>
-        </ul>
-      </li>
-      <li>
-        <a href="#">LoggOut</a>
-      </li>
-    </ul>
-  </nav>
-  <button type="button" id="sidebarCollapse" class="btn btn-info sidebarCollapseout">
+  <button type="button" ng-click="$ctrl.showMenu()" id="sidebarCollapse" class="btn btn-info sidebarCollapseout">
     <i class="fas fa-align-left"></i>
     <span>Menú</span>
   </button>
+  <nav id="sidebar" class="active">
+    <div class="menu">
+      <div class="sidebar-header">
+        <h3>Ships Manager</h3>
+      </div>
+
+      <ul class="list-unstyled components list-group">
+        <p>Star Ships Menú</p>
+        <li>
+          <div href="#shipsListMenuPages" data-toggle="collapse" aria-expanded="false" class="list-group-item dropdown-toggle"><a>Ships</a></div>
+          <ul class="collapse list-group" id="shipsListMenuPages">
+            <li class="list-group-item">
+              <a href="#!/ships/1">Page 1</a>
+            </li>
+            <li class="list-group-item">
+              <a href="#!/ships/2">Page 2</a>
+            </li>
+            <li class="list-group-item">
+              <a href="#!/ships/3">Page 3</a>
+            </li>
+            <li class="list-group-item">
+              <a href="#!/ships/4">Page 4</a>
+            </li>
+          </ul>
+        </li>
+        <li class="list-group-item">
+            <a href="#!/monsters">Star Monsters</a>
+          </li>
+        <div class="btn-group btn-loggout">
+          <button class="btn btn-danger" href="#!/loggout">Exit</a>
+        </div>
+      </ul>
+    </div>
+  </nav>
 </div>
