@@ -62,7 +62,7 @@
               CacheService.add('lastServerCall', Date.parse(new Date()) / 1000)
               return httpConfig
             } else { // conseguir de la cache la instancia de la última petición al servidor "configurado por url" y calcular el tiempo de transcurso
-              const timeToNextCall = 3
+              const timeToNextCall = 300
               let now = Date.parse(new Date()) / 1000
               if ((now - lastServerCallCache) > timeToNextCall) {
                 return httpConfig
