@@ -24,7 +24,7 @@
     "yarn": "^1.13.0"
   },
   "devDependencies": {
-    "webpack-cli": "^3.2.1"
+    "webpack-cli": "^3.3.12"
   },
   "standard": {
     "globals": [
