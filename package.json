@@ -19,12 +19,12 @@
   "homepage": "https://github.com/developersmd/angular-registration-login-example#readme",
   "dependencies": {
     "tapable": "^0.2.6",
-    "webpack": "^3.0.0",
+    "webpack": "^5.75.0",
     "webpack-dev-server": "^2.4.5",
     "yarn": "^1.13.0"
   },
   "devDependencies": {
-    "webpack-cli": "^3.2.1"
+    "webpack-cli": "^5.0.1"
   },
   "standard": {
     "globals": [
